@@ -1,0 +1,28 @@
+{% extends 'clip/base.html' %}
+
+{% block content %}
+
+
+<div class="container-fluid ">
+    <div class="row">
+
+  {% for post in object_list %}
+    <div class="col-sm-6">
+    <div class="object_list__item ">
+
+    <h1><a href="{% url 'clip:detail'  post.id %}">{{ post.title }}</a></h1>
+    <img src="{{post.img.url}}" alt="{{ post.img.name }}">   <a href="#" class="button btn btn-outline-warning">купить</a>
+
+
+     <h2>{{ post.characteristic}}</h2>
+        <h2>{{post.price}} грн</h2>
+
+     </div>
+     </div>
+
+  {% endfor %}
+    </div>
+    </div>
+
+{% endblock %}
+

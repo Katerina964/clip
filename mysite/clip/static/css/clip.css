@@ -1,0 +1,18 @@
+.navigation {margin-bottom: 20px;
+            font-size: 200%;
+            width: 200%;
+            font-family: 'Lobster';
+             border: 2px dotted  #e3f2fd;
+             background:white;
+             }
+
+
+.object_list__item {margin-bottom: 30px; }
+
+h1, h2 {
+       font-family: 'Lobster', cursive;color: #828282;}
+h1{font-size: 20pt;}
+h2{font-size: 15pt;}
+
+.button {margin-left:20px;}
+.pagination {margin-top: 50px;}

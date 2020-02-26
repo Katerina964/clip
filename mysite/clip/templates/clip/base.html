@@ -1,0 +1,70 @@
+{% load static %}
+<html>
+    <head>
+        <title>Clip</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/clip.css' %}">
+    </head>
+    <body>
+    <div>
+    {% block nav %}
+
+        <nav class=" navigation navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">Заколка и Ко</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+      <a class="nav-link " href="#"> О нас </a>
+      </li>
+
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'clip:category_crab'  %}">крабы</a>
+      </li>
+
+      <li class="nav-item">
+      <a class="nav-link" href=" {% url 'clip:category_spring'  %} ">резинки</a>
+      </li>
+
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'clip:all' %}">корзина</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+     {% endblock %}
+
+
+    {% block content %} {% endblock %}
+
+
+{% block num %}
+<nav aria-label="...">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+{% endblock %}
+
+</div>
+</body>
+</html>
+
