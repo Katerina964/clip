@@ -3,26 +3,37 @@
 {% block content %}
 
 
-<div class="container-fluid ">
-    <div class="row">
-
-  {% for post in object_list %}
-    <div class="col-sm-6">
-    <div class="object_list__item ">
-
-    <h1><a href="{% url 'clip:detail'  post.id %}">{{ post.title }}</a></h1>
-    <img src="{{post.img.url}}" alt="{{ post.img.name }}">   <a href="#" class="button btn btn-outline-warning">купить</a>
+  <div class="container-fluid">
+   <div class="row">
 
 
-     <h2>{{ post.characteristic}}</h2>
-        <h2>{{post.price}} грн</h2>
+  {% for hairclip in hairclip_list %}
+    <div class="col-12 col-sm-6">
+    <div class="hairclip_list__item ">
+    <form action="{% url 'clip:cart' %}"
+              method="GET">{% csrf_token %}
+
+    <h1><a href="{% url 'clip:detail'  hairclip.id %}">{{ hairclip.title }}</a></h1>
+    <img src="{{hairclip.img.url}}" alt="{{ hairclip.img.name }}"><button name="product" value="{{ hairclip.pk }}"
+                    type="submit" class="btn btn-outline-warning">купить</button></form>
+
+
+     <h2>{{ hairclip.characteristic }}</h2>
+     <h2>{{ hairclip.price }} грн</h2>
+     <p>{{hairclip.quantity}}шт </p>
+
+
 
      </div>
      </div>
 
   {% endfor %}
+
+
     </div>
-    </div>
+
+
 
 {% endblock %}
 
+ </div>

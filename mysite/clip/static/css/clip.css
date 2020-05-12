@@ -1,18 +1,38 @@
 .navigation {margin-bottom: 20px;
-            font-size: 200%;
-            width: 200%;
-            font-family: 'Lobster';
-             border: 2px dotted  #e3f2fd;
-             background:white;
+             font-size: 150%;
+             width: 200%;
+             font-family: 'Lobster';
+             border: 6px dotted pink;
+
              }
 
 
-.object_list__item {margin-bottom: 30px; }
+.hairclip_list__item {margin-bottom: 80px;}
 
-h1, h2 {
-       font-family: 'Lobster', cursive;color: #828282;}
-h1{font-size: 20pt;}
-h2{font-size: 15pt;}
+.crab_list__item{margin-bottom: 80px;}
 
-.button {margin-left:20px;}
-.pagination {margin-top: 50px;}
+h1, h2, p, span, pre {
+       font-family: 'Lobster', cursive;
+       color: #828282;
+
+       }
+img + a{margin-left:30px;}
+
+h1,pre{font-size: 20pt;
+   }
+h2, p{font-size: 15pt;
+
+   }
+.detail {margin-left:30px;
+}
+button {margin-left:30px;
+       transition: all 9999999s
+        }
+.pagination {margin-top: 50px;
+            }
+.page-item {padding: 8px;
+            border: 1px dotted orange;}
+
+div img {border: 5px dotted pink;}
+
+.cart {margin-left:10px;}

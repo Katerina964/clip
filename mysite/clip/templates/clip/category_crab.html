@@ -14,14 +14,14 @@
 
 
 
-                 {%  for crab in crab_list %}
+                 {%  for crab in page_obj %}
                     <div class="col-sm-6">
                     <div class="crab_list__item ">
 
 
 
                     <h1><a href="{% url 'clip:detail' crab.id %}">{{ crab.title }}</a></h1>
-                    <img src="{{crab.img.url}}">   <a href="#" class="button btn btn-outline-warning">купить</a>
+                    <img src="{{crab.img.url}}"><a href="#" class="button btn btn-outline-warning">купить</a>
 
 
                     <h2>{{ crab.characteristic}}</h2>
@@ -34,7 +34,7 @@
 
 
 
-    {% endfor %}
+                  {% endfor %}
   </div>
    </div>
    </div>

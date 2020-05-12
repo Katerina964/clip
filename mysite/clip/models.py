@@ -7,10 +7,12 @@ from django.utils import timezone
 class Hairclip(models.Model):
     category = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
-    img = models.ImageField(upload_to='hairclip', verbose_name='photo',
-                           )
+    img = models.ImageField(upload_to='hairclip', verbose_name='photo',)
+
     characteristic = models.CharField(max_length=100)
     price = models.PositiveSmallIntegerField()
+    quantity= models.PositiveSmallIntegerField(default=1)
+
 
     def __str__(self):
         return self.title

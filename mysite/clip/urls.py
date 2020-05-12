@@ -12,6 +12,10 @@ urlpatterns = [
     path('clip/<int:pk>/', views.detail, name='detail'),
     path('all/', HomePageView.as_view(), name='all'),
     path('spring/', views.category_spring, name='category_spring'),
+    path('cart', views.cart, name='cart'),
+    path('in_cart', views.in_cart, name='in_cart'),
+    path('manage_cart', views.manage_cart, name='manage_cart')
+
 
 ]
 

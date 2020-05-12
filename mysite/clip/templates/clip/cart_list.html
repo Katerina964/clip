@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'clip/base.html' %}
+
+{% block content %}
+
+<div class="cart">
+    <form action="{% url 'clip:manage_cart' %}" method="GET">
+        {% csrf_token %}
+        {% for obj in page_obj %}
+
+
+            <h1>{{ obj.title }}</h1>
+
+                <img src="{{obj.img.url}}" alt="{{ obj.img.name }}">
+                <span>{{obj.price}} грн</span>
+                <button name="plus" value="{{ obj.pk }}" type="submit" class="btn btn-outline-warning"> плюс 1</button>
+                <button name="minus" value="{{ obj.pk }}" type="submit" class="btn btn-outline-warning"> минус 1</button>
+
+            <h2>{{ obj.characteristic}}</h2>
+            <p>{{obj.quantity}}шт </p>
+
+        {% endfor %}
+    </form>
+    <pre>Всего:  {{ total }}</pre>
+
+</div>
+<!--a href="{% url 'clip:cart'  %}">оформить заказ</a-->
+
+{% endblock %}
+
