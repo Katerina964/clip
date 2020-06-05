@@ -11,7 +11,7 @@ class Hairclip(models.Model):
 
     characteristic = models.CharField(max_length=100)
     price = models.PositiveSmallIntegerField()
-    quantity= models.PositiveSmallIntegerField(default=1)
+
 
 
     def __str__(self):

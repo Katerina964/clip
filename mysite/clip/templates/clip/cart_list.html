@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="cart">
-    <form action="{% url 'clip:manage_cart' %}" method="GET">
+    <form action="{% url 'clip:in_cart' %}" method="GET">
         {% csrf_token %}
         {% for obj in page_obj %}
 
@@ -16,7 +16,7 @@
                 <button name="minus" value="{{ obj.pk }}" type="submit" class="btn btn-outline-warning"> минус 1</button>
 
             <h2>{{ obj.characteristic}}</h2>
-            <p>{{obj.quantity}}шт </p>
+            <p>{{obj.quantity}}  шт</p>
 
         {% endfor %}
     </form>

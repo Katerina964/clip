@@ -7,3 +7,6 @@
     print('Product to add', product)
     print('Shopping cart', shopping_cart)
     return redirect("clip:all")'''
+
+#e3f2fd
+#42adf5
