@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="cart">
-    <form action="{% url 'clip:in_cart' %}" method="GET">
+    <form action="{% url 'clip:manage_cart' %}" method="GET">
         {% csrf_token %}
         {% for obj in page_obj %}
 
@@ -20,7 +20,7 @@
 
         {% endfor %}
     </form>
-    <pre>Всего:  {{ total }}</pre>
+    <pre>Всего:  {{ total }}  грн</pre>
 
 </div>
 <!--a href="{% url 'clip:cart'  %}">оформить заказ</a-->
