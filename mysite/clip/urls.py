@@ -14,9 +14,9 @@ urlpatterns = [
     path('spring/', views.category_spring, name='category_spring'),
     path('cart', views.cart, name='cart'),
     path('in_cart', views.in_cart, name='in_cart'),
-    path('manage_cart', views.manage_cart, name='manage_cart')
-
-
+    path('manage_cart', views.manage_cart, name='manage_cart'),
+    path('order', views.order, name='order'),
+    path('manage_form', views.manage_form, name='manage_form'),
 ]
 
 if settings.DEBUG:

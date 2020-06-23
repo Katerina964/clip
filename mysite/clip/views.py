@@ -3,10 +3,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Hairclip
 from django.views.generic import ListView
 from django.core.paginator import Paginator
-from django.db.models import F
-from django.db.models import Count
-import copy
-from django.http import QueryDict
+from .forms import OrdershopForm
 
 
 def category_crab(request):
@@ -58,17 +55,17 @@ def in_cart(request):
 
     cart_list = request.session.get('cart', {})
     in_cart_list = Hairclip.objects.filter(pk__in=cart_list)
-    #form = HairclipForm()
+
     total = 0
     for each in in_cart_list:
         each.quantity = cart_list[str(each.id)]["quantity"]
         total += cart_list[str(each.id)]["quantity"] * each.price
-
+    form = OrdershopForm()
     paginator = Paginator(in_cart_list, 3)
     page = request.GET.get('page')
     page_obj = paginator.get_page(page)
 
-    context = {"page_obj": page_obj, "total": total}
+    context = {"page_obj": page_obj, "total": total, "form": form}
     return render(request, 'clip/cart_list.html', context)
 
 
@@ -90,6 +87,26 @@ def manage_cart(request):
 
     return redirect("clip:in_cart")
 
+
+def manage_form(request):
+
+    return redirect("clip:order")
+
+
+def order(request):
+    cart_list = request.session.get('cart', {})
+    order_list = Hairclip.objects.filter(pk__in=cart_list)
+
+    total = 0
+    number = 0
+    for each in order_list:
+        each.quantity = cart_list[str(each.id)]["quantity"]
+        total += cart_list[str(each.id)]["quantity"] * each.price
+        number += cart_list[str(each.id)]["quantity"]
+    content = {"order_list": order_list, "total": total, "number": number}
+
+
+    return render(request, 'clip/order.html', content)
 
 
 

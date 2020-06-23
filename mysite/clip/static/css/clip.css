@@ -3,7 +3,12 @@
              width: 100%;
              font-family: 'Lobster';
              border: 6px dotted pink;}
+.form   {border: 1px solid pink;border-radius: 8px; width: 450px; padding: 20px;background:#faf2f8; }
 div img {border: 5px dotted pink;}
+
+
+
+#table + button:hover {background-color: orange;}
 
 .navbar-brand{font-size: 100%;}
 
@@ -17,7 +22,10 @@ div img {border: 5px dotted pink;}
 
 .crab_list__item{margin-bottom: 80px;}
 
-h1, h2, p, span, pre {
+table {margin-bottom: 30px;margin-top: 30px;}
+th {background-color: #faf2f8;}
+td, th {text-align: center}
+h1, h2, p, span, pre, table  {
        font-family: 'Lobster', cursive;
        color: #b4b5aa}
 
@@ -26,9 +34,9 @@ h1 a{color: #b4b5aa}
 
 img + a{margin-left:30px;}
 
-h1,pre{font-size: 20pt;}
+h1,pre  {font-size: 20pt;}
 
-h2, p{font-size: 15pt;}
+h2, p, table {font-size: 15pt;}
 
 .detail {margin-left:30px;}
 
