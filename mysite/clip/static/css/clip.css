@@ -1,14 +1,25 @@
 .navigation {margin-bottom: 20px;
              font-size: 200%;
-             width: 100%;
+
+             border-bottom: 6px double pink;
+              border-top: 6px double pink;
              font-family: 'Lobster';
-             border: 6px dotted pink;}
-.form   {border: 1px solid pink;border-radius: 8px; width: 450px; padding: 20px;background:#faf2f8; }
-div img {border: 5px dotted pink;}
+             }
+.form   {border: 3px double #b4b5aa;border-radius: 8px; width: 450px; padding: 20px;background:#faf2f8; }
+
+div img {border: 6px double #e0cee0;border-radius: 6px;}
 
 
+button {margin-left:30px;
+       transition: all 9999999s;color: pink; border: 2px solid pink;border-radius: 4px;background-color: white; width: 80px;
+       height: 40px; }
 
-#table + button:hover {background-color: orange;}
+button:hover {background-color: #c7e7ed; }
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px lightskyblue;
+}
 
 .navbar-brand{font-size: 100%;}
 
@@ -23,6 +34,7 @@ div img {border: 5px dotted pink;}
 .crab_list__item{margin-bottom: 80px;}
 
 table {margin-bottom: 30px;margin-top: 30px;}
+
 th {background-color: #faf2f8;}
 td, th {text-align: center}
 h1, h2, p, span, pre, table  {
@@ -40,8 +52,8 @@ h2, p, table {font-size: 15pt;}
 
 .detail {margin-left:30px;}
 
-button {margin-left:30px;
-       transition: all 9999999s}
+
+
 
 .pagination {margin-top: 30px;}
 

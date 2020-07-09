@@ -1,9 +1,10 @@
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Hairclip
+from .models import Hairclip, Ordershop, Positions
 from django.views.generic import ListView
 from django.core.paginator import Paginator
 from .forms import OrdershopForm
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 
 def category_crab(request):
@@ -47,7 +48,6 @@ def cart(request):
     if not cart.get(product):
         cart[product] = {"quantity": 1}
 
-
     return redirect("clip:all")
 
 
@@ -60,7 +60,9 @@ def in_cart(request):
     for each in in_cart_list:
         each.quantity = cart_list[str(each.id)]["quantity"]
         total += cart_list[str(each.id)]["quantity"] * each.price
+
     form = OrdershopForm()
+
     paginator = Paginator(in_cart_list, 3)
     page = request.GET.get('page')
     page_obj = paginator.get_page(page)
@@ -88,26 +90,44 @@ def manage_cart(request):
     return redirect("clip:in_cart")
 
 
-def manage_form(request):
-
-    return redirect("clip:order")
-
-
 def order(request):
+    user = authenticate(username=request.POST['email'], password="k")
+
+    if user is None:
+        user = User.objects.create_user(username=request.POST['email'], password="k")
     cart_list = request.session.get('cart', {})
     order_list = Hairclip.objects.filter(pk__in=cart_list)
-
     total = 0
     number = 0
+    form = OrdershopForm(request.POST)
+    pk = form.save().id
+    order = Ordershop.objects.get(pk=pk)
+
     for each in order_list:
-        each.quantity = cart_list[str(each.id)]["quantity"]
+        order.positions_set.create(img=each.img, title=each.title,
+        price=each.price, quantity=cart_list[str(each.id)]["quantity"])
         total += cart_list[str(each.id)]["quantity"] * each.price
         number += cart_list[str(each.id)]["quantity"]
-    content = {"order_list": order_list, "total": total, "number": number}
+    del request.session['cart']
 
-
+    request.session['order'] = user.id, total, number
+    print(request.session['order'])
+    order_lists = Positions.objects.filter(ordershop_id=pk)
+    content = {"order_lists": order_lists, "total": total, "number": number}
     return render(request, 'clip/order.html', content)
 
 
 
+def emty_order(request):
 
+    user_id = request.session.get('order', 'red')
+    if user_id != 'red':
+        user = get_object_or_404(User, pk=user_id[0])
+        total = user_id[1]
+        number = user_id[2]
+        order = Ordershop.objects.filter(email=user.username).last()
+        order_lists = order.positions_set.all()
+        order_lists = Positions.objects.filter(pk__in=order_lists)
+        content = {"order_lists": order_lists, "total": total, "number": number}
+        return render(request, 'clip/order.html', content)
+    return render(request, 'clip/order.html')

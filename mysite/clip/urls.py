@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from django.conf.urls.static import static
 from django.conf import settings
 from .views import HomePageView
@@ -16,7 +16,11 @@ urlpatterns = [
     path('in_cart', views.in_cart, name='in_cart'),
     path('manage_cart', views.manage_cart, name='manage_cart'),
     path('order', views.order, name='order'),
-    path('manage_form', views.manage_form, name='manage_form'),
+    path('emty_order', views.emty_order, name='emty_order'),
+    #re_path(r'^emty_order/(?:user-(?P<user_id>\d+)/)?$', emty_order),
+    #path('emty_order/<int:user_id>/', views.emty_order,),
+
+
 ]
 
 if settings.DEBUG:
