@@ -19,7 +19,7 @@ urlpatterns = [
     path('emty_order', views.emty_order, name='emty_order'),
     #re_path(r'^emty_order/(?:user-(?P<user_id>\d+)/)?$', emty_order),
     #path('emty_order/<int:user_id>/', views.emty_order,),
-
+    # path('clip/<int:user_id>/', views.detail, name='example'),
 
 ]
 

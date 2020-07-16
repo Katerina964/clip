@@ -5,6 +5,9 @@ from django.core.paginator import Paginator
 from .forms import OrdershopForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+
 
 
 def category_crab(request):
@@ -45,10 +48,13 @@ def cart(request):
     cart = request.session['cart']
     cart.update()
     product = request.GET.get('product')
+    name = request.GET.get('view')
+    print(name)
+
     if not cart.get(product):
         cart[product] = {"quantity": 1}
 
-    return redirect("clip:all")
+    return redirect(name)
 
 
 def in_cart(request):
@@ -92,7 +98,8 @@ def manage_cart(request):
 
 def order(request):
     user = authenticate(username=request.POST['email'], password="k")
-
+    # user_email = str(request.POST['email'])
+    # print(user_email)
     if user is None:
         user = User.objects.create_user(username=request.POST['email'], password="k")
     cart_list = request.session.get('cart', {})
@@ -108,10 +115,19 @@ def order(request):
         price=each.price, quantity=cart_list[str(each.id)]["quantity"])
         total += cart_list[str(each.id)]["quantity"] * each.price
         number += cart_list[str(each.id)]["quantity"]
+
+    #email = str(order_list)
+    #
+    # send_mail('Заказ', str(order_list), 'katrin.balakina@gmail.com',
+    #           ['katrin.balakina@gmail.com'])
+    #
+    # email = EmailMessage('Hello', 'World', to=['katrin.balakina@gmail.com'])
+    # email.send()
+
     del request.session['cart']
 
     request.session['order'] = user.id, total, number
-    print(request.session['order'])
+
     order_lists = Positions.objects.filter(ordershop_id=pk)
     content = {"order_lists": order_lists, "total": total, "number": number}
     return render(request, 'clip/order.html', content)
@@ -120,7 +136,13 @@ def order(request):
 
 def emty_order(request):
 
+    # Ordershop.objects.all().delete()
+    # Positions.objects.all().delete()
+    print(User.objects.all())
+
+
     user_id = request.session.get('order', 'red')
+    print(user_id)
     if user_id != 'red':
         user = get_object_or_404(User, pk=user_id[0])
         total = user_id[1]
@@ -131,3 +153,7 @@ def emty_order(request):
         content = {"order_lists": order_lists, "total": total, "number": number}
         return render(request, 'clip/order.html', content)
     return render(request, 'clip/order.html')
+
+# def example(request, user_id):
+#     print(user_id)
+#     return render(request, 'clip/order.html')

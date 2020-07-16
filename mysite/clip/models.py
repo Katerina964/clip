@@ -18,11 +18,11 @@ class Hairclip(models.Model):
 class Ordershop(models.Model):
 
     date_order = models.DateTimeField('Дата заказа: ')
-    first_name = models.CharField(max_length=20, verbose_name='Имя')
-    surname = models.CharField(max_length=20, verbose_name='Фамилия')
-    town = models.CharField(max_length=20, verbose_name='Город')
-    phone = models.CharField(max_length=20, verbose_name='Телефон')
-    email = models.EmailField(max_length=100, verbose_name='Почта')
+    first_name = models.CharField(max_length=15, verbose_name='Имя')
+    surname = models.CharField(max_length=15, verbose_name='Фамилия')
+    town = models.CharField(max_length=15, verbose_name='Город')
+    phone = models.CharField(max_length=15, verbose_name='Телефон')
+    email = models.EmailField(max_length=15, verbose_name='Почта')
 
 
 class Positions (models.Model):

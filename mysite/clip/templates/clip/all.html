@@ -5,17 +5,22 @@
 
   <div class="container-fluid">
    <div class="row">
+   <div class="info">
+    Вся красота у нас! Доставка в течении 3 дней.  <span style="color:pink;  font-size: 70%;" >Сайт  размещен с рекламной целью. Магазин не работает) 095 151 73 94</span>
+
+   </div>
+   </div>
+   <div class="row">
 
 
   {% for hairclip in hairclip_list %}
     <div class="col-12 col-sm-6">
     <div class="hairclip_list__item ">
-    <form action="{% url 'clip:cart' %}"
-              method="GET">{% csrf_token %}
-
+    <form action="{% url 'clip:cart' %}"method="GET">{% csrf_token %}
+    <input type="hidden"  name="view" value="{% url 'clip:all' %}" />
     <h1><a href="{% url 'clip:detail'  hairclip.id %}">{{ hairclip.title }}</a></h1>
     <img src="{{hairclip.img.url}}" alt="{{ hairclip.img.name }}"><button name="product" value="{{ hairclip.pk }}"
-                    type="submit" class="btn btn-outline-warning"style="color: pink; border: 2px solid pink">купить</button></form>
+                    type="submit" class="btn btn-outline-warning">купить</button></form>
 
 
      <h2>{{ hairclip.characteristic }}</h2>

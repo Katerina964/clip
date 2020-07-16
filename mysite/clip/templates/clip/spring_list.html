@@ -3,41 +3,28 @@
 
 
 {% block content %}
-
-
-
-
-      <div class="crab_list__item ">
-      <div class="container-fluid ">
-
-      <div class="row">
-
-
+          <div class="crab_list__item ">
+          <div class="container-fluid ">
+          <div class="row">
 
                  {%  for spring in page_obj %}
                     <div class="col-sm-6">
                     <div class="spring_list__item ">
-
-
+                    <form action="{% url 'clip:cart' %}" method="GET" >{% csrf_token %}
+                    <input type="hidden"  name="view" value="{% url 'clip:category_spring' %}" />
 
                     <h1><a href="{% url 'clip:detail' spring.id %}">{{ spring.title }}</a></h1>
-                    <img src="{{spring.img.url}}">   <a href="#" class="button btn btn-outline-warning">купить</a>
-
-
+                    <img src="{{spring.img.url}}"><button name="product" value="{{ spring.pk }}"
+                    type="submit" class="btn btn-outline-warning">купить</button></form>
                     <h2>{{ spring.characteristic}}</h2>
                     <h2>{{ spring.price}} грн</h2>
 
                     </div>
-
                     </div>
-
-
-
-
-    {% endfor %}
-</div>
-</div>
-</div>
+                 {% endfor %}
+        </div>
+        </div>
+        </div>
 
 
 {% endblock %}

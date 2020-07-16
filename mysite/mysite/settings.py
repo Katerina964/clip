@@ -128,3 +128,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#
+# # Host for sending e-mail.
+# EMAIL_HOST = 'localhost'
+#
+# # Port for sending e-mail.
+# EMAIL_PORT = 1025
+#
+# # Optional SMTP authentication information for EMAIL_HOST.
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False

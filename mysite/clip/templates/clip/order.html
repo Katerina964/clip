@@ -1,9 +1,9 @@
 {% extends 'clip/base.html' %}
-{% block pagination %} {% endblock %}
+
 {% block content %}
 
 {% if order_lists %}
-
+<div class="container-fluid  ">
 <h1>Ваш заказ</h1>
 <table  cellpadding="10" border="1" width="50%">
     <tr>
@@ -15,8 +15,8 @@
 {% for obj in order_lists %}
 
     <tr>
-        <td><img src="{{obj.img.url}}" alt="{{ obj.img.name }}"width="100" height="100"
-                 style="border: 5px dotted white"></td>
+        <td><img src="{{obj.img.url}}" alt="{{ obj.img.name }}"
+                 style="border: 5px dotted white;  "></td>
         <td>{{ obj.title }}</td>
 
         <td>{{obj.price}} грн</td>
@@ -29,11 +29,15 @@
 <p> Всего: {{ number }} шт </p>
 <p> Итого:   {{ total }} грн </p>
 
-
-<p style="color: pink; font-size: 30px;">  Ожидайте доставку. До новых встреч &#9829  </p>
-
+<div class="hurt">
+    <p style="color: pink; font-size: 30px;">  Ожидайте доставку. До новых встреч <span style="color:pink">&#9829</span></p>
+</div>
+</div>
 {% else %}
+<div class="container-fluid ">
 <h1 style="text-align: center; margin-top: 70px;">Заполните форму и подтвердите Ваш выбор на странице корзина)))</h1>
 {% endif %}
-
+</div>
 {% endblock %}
+
+{% block pagination %} {% endblock %}
