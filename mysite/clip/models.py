@@ -22,7 +22,7 @@ class Ordershop(models.Model):
     surname = models.CharField(max_length=15, verbose_name='Фамилия')
     town = models.CharField(max_length=15, verbose_name='Город')
     phone = models.CharField(max_length=15, verbose_name='Телефон')
-    email = models.EmailField(max_length=15, verbose_name='Почта')
+    email = models.EmailField(max_length=25, verbose_name='Почта')
 
 
 class Positions (models.Model):
