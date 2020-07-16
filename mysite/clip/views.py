@@ -138,7 +138,7 @@ def emty_order(request):
 
     # Ordershop.objects.all().delete()
     # Positions.objects.all().delete()
-    print(User.objects.all())
+
 
 
     user_id = request.session.get('order', 'red')
