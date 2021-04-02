@@ -5,14 +5,11 @@ from django.core.paginator import Paginator
 from .forms import OrdershopForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from django.core.mail import send_mail
-from django.core.mail import EmailMessage
-
 
 
 def category_crab(request):
     crab_list = Hairclip.objects.filter(category='краб')
-    paginator = Paginator(crab_list, 4)
+    paginator = Paginator(crab_list, 6)
     page = request.GET.get('page')
     page_obj = paginator.get_page(page)
     context = {'page_obj': page_obj}
@@ -23,34 +20,30 @@ def category_crab(request):
 class HomePageView(ListView):
     model = Hairclip
     template_name = 'clip/all.html'
-    paginate_by = 4
+    paginate_by = 6
 
 
 def detail(request, pk):
     hairclip = get_object_or_404(Hairclip, pk=pk)
-
     return render(request, 'clip/detail.html', {'hairclip': hairclip})
 
 
 def category_spring(request):
     spring_list = Hairclip.objects.filter(category='пружинки')
-    paginator = Paginator(spring_list, 4)
+    paginator = Paginator(spring_list, 6)
     page = request.GET.get('page')
     page_obj = paginator.get_page(page)
     context = {'page_obj': page_obj}
-
     return render(request, 'clip/spring_list.html', context)
 
 
 def cart(request):
-
     request.session['cart'] = request.session.get('cart', {})
     cart = request.session['cart']
     cart.update()
     product = request.GET.get('product')
     name = request.GET.get('view')
     print(name)
-
     if not cart.get(product):
         cart[product] = {"quantity": 1}
 
@@ -112,17 +105,9 @@ def order(request):
 
     for each in order_list:
         order.positions_set.create(img=each.img, title=each.title,
-        price=each.price, quantity=cart_list[str(each.id)]["quantity"])
+                                   price=each.price, quantity=cart_list[str(each.id)]["quantity"])
         total += cart_list[str(each.id)]["quantity"] * each.price
         number += cart_list[str(each.id)]["quantity"]
-
-    #email = str(order_list)
-    #
-    # send_mail('Заказ', str(order_list), 'katrin.balakina@gmail.com',
-    #           ['katrin.balakina@gmail.com'])
-    #
-    # email = EmailMessage('Hello', 'World', to=['katrin.balakina@gmail.com'])
-    # email.send()
 
     del request.session['cart']
 
@@ -133,13 +118,7 @@ def order(request):
     return render(request, 'clip/order.html', content)
 
 
-
 def emty_order(request):
-
-    # Ordershop.objects.all().delete()
-    # Positions.objects.all().delete()
-
-
 
     user_id = request.session.get('order', 'red')
     print(user_id)
@@ -153,7 +132,3 @@ def emty_order(request):
         content = {"order_lists": order_lists, "total": total, "number": number}
         return render(request, 'clip/order.html', content)
     return render(request, 'clip/order.html')
-
-# def example(request, user_id):
-#     print(user_id)
-#     return render(request, 'clip/order.html')

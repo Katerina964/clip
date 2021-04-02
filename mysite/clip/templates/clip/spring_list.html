@@ -4,11 +4,11 @@
 
 {% block content %}
           <div class="crab_list__item ">
-          <div class="container-fluid ">
+          <div class="container">
           <div class="row">
 
                  {%  for spring in page_obj %}
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                     <div class="spring_list__item ">
                     <form action="{% url 'clip:cart' %}" method="GET" >{% csrf_token %}
                     <input type="hidden"  name="view" value="{% url 'clip:category_spring' %}" />
@@ -28,5 +28,3 @@
 
 
 {% endblock %}
-
-

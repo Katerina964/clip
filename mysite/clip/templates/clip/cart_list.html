@@ -1,7 +1,7 @@
 {% extends 'clip/base.html' %}
+{% block center %}<div class="container-fluid">{% endblock%}
+
 {% block content %}
-
-
 {% if not page_obj %}
 {% block pagination %} {% endblock %}
 <div class="container-fluid ">
@@ -25,7 +25,7 @@
                       <span>{{obj.price}} грн</span>
 
 
-                      <button name="plus" value="{{ obj.pk }}" type="submit" style="" > плюс 1</button>
+                      <button name="plus" value="{{ obj.pk }}" type="submit" > плюс 1</button>
 
                       <button name="minus" value="{{ obj.pk }}" type="submit"> минус 1</button>
                       </div>
@@ -59,9 +59,5 @@
 </div>
 </div>
 
-
 {% endif %}
-
-
-
 {% endblock %}

@@ -5,16 +5,17 @@
 {% block content %}
 
          <div class="crab_list__item ">
-         <div class="container-fluid ">
+         <div class="container">
          <div class="row">
 
                  {%  for crab in page_obj %}
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                     <div class="crab_list__item ">
                     <form action="{% url 'clip:cart' %}" method="GET">{% csrf_token %}
                         <input type="hidden"  name="view" value="{% url 'clip:category_crab' %}" />
                     <h1><a href="{% url 'clip:detail' crab.id %}">{{ crab.title }}</a></h1>
-                    <img src="{{crab.img.url}}"><button name="product" value="{{ crab.pk }}"
+                    <img src="{{crab.img.url}}"></<img>
+                    <button name="product" value="{{ crab.pk }}"
                     type="submit" class="btn btn-outline-warning">купить</button></form>
                     <h2>{{ crab.characteristic}}</h2>
                     <h2>{{ crab.price}} грн</h2>
@@ -31,5 +32,3 @@
 
 
 {% endblock %}
-
-

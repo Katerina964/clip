@@ -3,7 +3,7 @@
 {% block content %}
 
 
-  <div class="container-fluid">
+  <div class="container">
    <div class="row">
    <div class="info">
     Вся красота у нас! Доставка в течении 3 дней.  <span style="color:pink;  font-size: 70%;" >Сайт  размещен с рекламной целью. Магазин не работает) 095 151 73 94</span>
@@ -14,7 +14,7 @@
 
 
   {% for hairclip in hairclip_list %}
-    <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-4">
     <div class="hairclip_list__item ">
     <form action="{% url 'clip:cart' %}"method="GET">{% csrf_token %}
     <input type="hidden"  name="view" value="{% url 'clip:all' %}" />
