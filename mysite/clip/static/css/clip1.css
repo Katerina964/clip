@@ -8,6 +8,7 @@
 
 table {font-size: 10pt;}
 
-
+.info   { width: 90%; margin-bottom: 2%;
+        height: 3%; color: white; font-family: 'Lobster', cursive; text-align: center; font-size: 30%;}
 
 td img {width: 80px; height: 80px;}

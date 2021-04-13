@@ -1,7 +1,4 @@
-import datetime
 from django.db import models
-from django.utils import timezone
-
 
 
 class Hairclip(models.Model):
@@ -32,5 +29,3 @@ class Positions (models.Model):
     title = models.CharField(max_length=100)
     price = models.PositiveSmallIntegerField()
     quantity = models.PositiveSmallIntegerField()
-
-
