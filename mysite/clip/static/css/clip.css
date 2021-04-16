@@ -1,39 +1,34 @@
-.navigation {margin-bottom: 25px;
+.navigation {margin-bottom: 10px;
              font-size: 200%;
              border-bottom: 6px double pink;
               border-top: 6px double pink;
              font-family: 'Lobster';
-             }
+             background-color:  #c7e7ed}
+
 .form   {border: 3px double #b4b5aa;border-radius: 8px; width: 450px; padding: 20px;background:#faf2f8; }
 
-.info   { width: 90%; margin-bottom: 15px;
+.info   { width: 100%;
         height: 8%; color:pink; font-family: 'Lobster', cursive; text-align: center; font-size: 170%;}
+.info1   {color: pink; font-size: 70%  }
 
 div img {border: 6px double #e0cee0;border-radius: 6px;}
-
 
 button {margin-left:30px;
        color: orange; border: 1px solid orange;border-radius: 4px;background-color: white; width: 80px;
        height: 40px; }
 
-button:hover {background-color: orange;color:black}
+button:hover {background-color: orange;}
 a:hover{color:pink !important;}
-
-
 .navbar-brand{font-size: 100%;}
-
-.navigation .navbar-brand{
-    color: white; text-shadow: pink 2px 2px 0}
-
 .nav-link {
     color: white !important;}
 a:hover{color:pink!important}
 
-.hairclip_list__item {margin-bottom: 55px;}
+.hairclip_list__item {margin-bottom: 40px;}
 
-.spring_list__item {margin-bottom: 55px;}
+.spring_list__item {margin-bottom: 40px;}
 
-.crab_list__item{margin-bottom: 55px;}
+.crab_list__item{margin-bottom: 40px;}
 
 table {margin-bottom: 30px;margin-top: 30px;}
 
@@ -44,25 +39,20 @@ h1, h2, p, span, pre, table  {
        color: #b4b5aa}
 
 
-h1 a{color: #b4b5aa; margin-bottom: 15px}
+h1 a {color: #b4b5aa;}
+.title{margin-bottom: 10px; margin-top: 15px}
 
 img + a{margin-left:30px;}
 
 h1,pre  {font-size: 20pt;}
 
-
 h2, p, table {font-size: 15pt;}
-
 .detail {margin-left:30px;}
 
 td img{width:110px; height:110px}
-
-
-
-
 .page-item {padding: 8px;
             border: 1px dotted orange;}
-
-
-
 .cart {margin-left:10px;}
+h1 + img{width: 57%; height:57%;}
+.page-item a {color: #2183aded}
+body .container-fluid {height: 93%}

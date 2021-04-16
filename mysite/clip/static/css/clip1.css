@@ -1,14 +1,14 @@
-.incart button {margin-left:6px;font-size:90%;
+.navigation {margin-bottom: 0;}
+.new_button{margin-left:2px;font-size:90%;
        color: orange; border: 1px solid orange;border-radius: 4px;background-color: white; width: 70px;
-       height: 30px; }
-
+       height: 30px;}
 .incart img {width: 30%;}
-
 .form   {border: 3px double #b4b5aa;border-radius: 8px; width: 300px; padding: 20px;background:#faf2f8; font-size: 10pt}
-
 table {font-size: 10pt;}
-
-.info   { width: 90%; margin-bottom: 2%;
-        height: 3%; color: white; font-family: 'Lobster', cursive; text-align: center; font-size: 30%;}
-
 td img {width: 80px; height: 80px;}
+.navigation {background-color: #509aba70}
+h1 + img{width: 50%; height:50%;}
+.info   {height: 0; color: white;  font-size: 0;margin-bottom: 0}
+.info1  {color: white; font-size: 0}
+body .container-fluid {height: auto}
+button {margin-left: 40px; width: 100px;}

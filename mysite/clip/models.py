@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Hairclip(models.Model):
@@ -14,7 +15,7 @@ class Hairclip(models.Model):
 
 class Ordershop(models.Model):
 
-    date_order = models.DateTimeField('Дата заказа: ')
+    date_order = models.DateTimeField(default=timezone.now)
     first_name = models.CharField(max_length=15, verbose_name='Имя')
     surname = models.CharField(max_length=15, verbose_name='Фамилия')
     town = models.CharField(max_length=15, verbose_name='Город')

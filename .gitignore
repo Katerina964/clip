@@ -3,4 +3,4 @@
 .idea
 __pycache__
 media
-x
+mysite/clip/templates/clip/x.html
