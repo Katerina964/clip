@@ -71,6 +71,8 @@ def in_cart(request):
 
 
 def manage_cart(request):
+    admin = User.objects.all()
+    print(admin)
 
     if request.GET.get("plus"):
         pk = request.GET.get("plus")

@@ -9,6 +9,9 @@ class Hairclip(models.Model):
     characteristic = models.CharField(max_length=100)
     price = models.PositiveSmallIntegerField()
 
+    class Meta:
+        ordering = ["-price"]
+
     def __str__(self):
         return self.title
 

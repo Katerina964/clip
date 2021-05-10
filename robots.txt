@@ -1,0 +1,9 @@
+﻿User-agent: Yandex
+Disallow: /order
+Disallow: /in_cart
+User-agent: Googlebot
+Disallow: /order
+Disallow: /in_cart
+User-agent: *
+Disallow: /order
+Disallow: /in_cart
