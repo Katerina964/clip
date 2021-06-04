@@ -9,7 +9,7 @@
     </div>
    <div class="row">
   {% for hairclip in hairclip_list %}
-    <div class="col-12 col-sm-4" style="border: 1px solid #c7e7ed">
+    <div class="col-12 col-sm-4" style="border: 1px solid #c7e7ed; height: 22.5em">
     <div class="hairclip_list__item ">
     <form action="{% url 'clip:cart' %}"method="GET">{% csrf_token %}
     <input type="hidden"  name="view" value="{% url 'clip:all' %}" />

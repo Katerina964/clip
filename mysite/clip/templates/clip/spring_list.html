@@ -5,7 +5,7 @@
           <div class="container-md mt-lg-5">
           <div class="row">
                  {%  for spring in page_obj %}
-                    <div class="col-sm-4" style="border: 1px solid #c7e7ed">
+                    <div class="col-sm-4" style="border: 1px solid #c7e7ed; height: 22.5em">
                     <div class="spring_list__item ">
                     <form action="{% url 'clip:cart' %}" method="GET" >{% csrf_token %}
                     <input type="hidden"  name="view" value="{% url 'clip:category_spring' %}" />
